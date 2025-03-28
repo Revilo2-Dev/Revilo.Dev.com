@@ -1,5 +1,6 @@
 body{
     overflow-x: hidden;
+    overflow-y: hidden;
     color: white;
     padding: 20px;
     background-color: black;
@@ -18,20 +19,19 @@ body{
 }
 
 .links {
-  margin: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     grid-template-rows: auto auto;
     grid-gap: 30px;
-    width: 100%;
+    width: 95%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 20px;
     justify-content: center;
     align-items: center;
 }
 
 .profile {
-  margin: 20px;
+    margin: 20px;
     width: 20%;
 }
 
@@ -45,29 +45,42 @@ button {
     border-color: white;
     border-radius: 10px;
     border-width: 2px;
+    border-style: solid;
     padding: 3%;
     width: 30%;
+    text-wrap:nowrap;
 
 }
+
 
 .button-c:hover {
   border-color: rgb(255, 102, 0);
+  color: rgb(255, 102, 0);
 }
 
 .button-m:hover {
-  border-color: rgb(30, 104, 30);
+  border-color: rgb(74, 141, 74);
+  color: rgb(74, 141, 74)
 }
 
 .button-i:hover {
   border-color: rgb(206, 84, 84);
+  color: rgb(206, 84, 84)
 }
 
 .button-d:hover {
   border-color: rgb(84, 84, 165);
+  color: rgb(84, 84, 165)
 }
 
 .button-x:hover {
-  border-color: rgb(29, 29, 29);
+  border-color: rgb(71, 71, 71);
+  color: rgb(71, 71, 71)
+}
+
+.button-g:hover {
+  border-color: rgb(96, 34, 153);
+  color: rgb(96, 34, 153)
 }
 
 
@@ -93,13 +106,14 @@ button {
       "footer image";
     grid-template-columns: 2fr 1fr;
     gap: 5px;
+    min-height: 110px;
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(197, 75, 18, 0.541));
     border-radius: 20px;
     border-style: solid;
     padding: 5px;
   }
   .link1 > div {
-    padding: 10px;
+    padding: 5px;
   }
   .link1 > div.header {
     grid-area: header;
@@ -113,9 +127,12 @@ button {
     width: 100%;
     border-radius: 20px;
     align-self: center;
+    height: 100%;
   }
   .link1 > div.content {
     grid-area: content;
+    max-height: 100px;
+    overflow-y: hidden;
   }
   .link1 > div.footer {
     grid-area: footer;
@@ -129,13 +146,14 @@ button {
       "footer image";
     grid-template-columns: 2fr 1fr;
     gap: 5px;
+    min-height: 110px;
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(233, 74, 74, 0.541));
     border-radius: 20px;
     border-style: solid;
     padding: 5px;
   }
   .link2 > div {
-    padding: 10px;
+    padding: 5px;
   }
   .link2 > div.header {
     grid-area: header;
@@ -149,9 +167,12 @@ button {
     width: 100%;
     border-radius: 20px;
     align-self: center;
+    height: 100%;
   }
   .link2 > div.content {
     grid-area: content;
+    max-height: 100px;
+    overflow-y: hidden;
   }
   .link2 > div.footer {
     grid-area: footer;
@@ -165,13 +186,14 @@ button {
       "footer image";
     grid-template-columns: 2fr 1fr;
     gap: 5px;
+    min-height: 110px;
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(176, 18, 197, 0.24));
     border-radius: 20px;
     border-style: solid;
     padding: 5px;
   }
   .link3 > div {
-    padding: 10px;
+    padding: 5px;
   }
   .link3 > div.header {
     grid-area: header;
@@ -185,9 +207,12 @@ button {
     width: 100%;
     border-radius: 20px;
     align-self: center;
+    height: 100%;
   }
   .link3 > div.content {
     grid-area: content;
+    max-height: 100px;
+    overflow-y: hidden;
   }
   .link3 > div.footer {
     grid-area: footer;
@@ -201,13 +226,14 @@ button {
       "footer image";
     grid-template-columns: 2fr 1fr;
     gap: 5px;
+    min-height: 110px;
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(47, 67, 160, 0.541));
     border-radius: 20px;
     border-style: solid;
     padding: 5px;
   }
   .link4 > div {
-    padding: 10px;
+    padding: 5px;
   }
   .link4 > div.header {
     grid-area: header;
@@ -221,9 +247,12 @@ button {
     width: 100%;
     border-radius: 20px;
     align-self: center;
+    height: 100%;
   }
   .link4 > div.content {
     grid-area: content;
+    max-height: 100px;
+    overflow-y: hidden;
   }
   .link4 > div.footer {
     grid-area: footer;
