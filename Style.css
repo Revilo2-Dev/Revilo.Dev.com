@@ -1,268 +1,327 @@
-body{
-    overflow-x: hidden;
-    overflow-y: hidden;
+
+
+
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #0C0C0C;
     color: white;
-    padding: 20px;
-    background-color: black;
-    background-image: image-set(url(Images/back.png)); 
-    background-size: cover; /* Cover the entire element */
-    background-repeat: no-repeat; /* Prevent tiling */
-    background-position: center; /* Center the image */
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    overflow-x: hidden;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE 10+ */
+    user-select: none; 
+    margin: 0;
+    padding: 0;
 
 }
 
-.header {
+
+/*animation*/
+
+.body {
+    /* Optional: Initial styles for the body container */
+    counter-reset: element-index;
+  }
+  
+  /* Apply animation to direct children of .body (excluding anchors) */
+  .body > *:not(a) {
+    opacity: 0;
+    transform: translateY(40px); /* Initial slide distance */
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: calc(0.1s * var(--element-index));
+    counter-increment: element-index;
+  }
+  
+  /* Style the anchor tags for layout and apply animation to them */
+  .body > a {
+    display: block; /* Make each link take full width */
+    margin-bottom: 10px; /* Add spacing between links */
+    text-decoration: none; /* Remove default link underline */
+    opacity: 0;
+    transform: translateY(40px); /* Initial slide distance for anchors */
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: calc(0.1s * var(--element-index));
+    counter-increment: element-index;
+  }
+  
+  /* Target the .link divs within the anchors for specific styling */
+  .body > a > .link {
+    /* Apply the background gradient and other visual styles here */
+    color: white; /* Example text color */
+    padding: 15px;
+    border-radius: 15px;
+  }
+  
+
+
+  @keyframes fadeInSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* animation done */
+
+  .body h2 {
+    margin-top: 2em;
+    width: 55%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+  }
+  
+
+  .body > *:first-child {
+    margin-top: 0;
+  }
+  
+
+  .link .header h1 {
+    margin-top: 0;
+  }
+  
+  .link .content p {
+    margin-bottom: 0;
+  }
+  
+  .link .image img {
+    max-width: 50px;
+    vertical-align: middle;
+  }
+  
+
+
+img {
+    -webkit-user-drag: none; /* Safari and Chrome */
+    -khtml-user-drag: none;  /* Konqueror HTML */
+    -moz-user-drag: none;    /* Firefox */
+    -o-user-drag: none;      /* Opera */
+
+}
+
+
+a {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-style: normal;
+    text-decoration: none;
+}
+
+h5 {
+    color: grey;
+}
+
+b {
+    color: white;
+}
+h3 {
+    color:  rgb(173, 173, 173);
+}
+
+h2 {
+    color: #757AD2;
+}
+
+
+.body {
+    padding-top: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.navbar {
+    background-color: #00000054;
     display: flex;
-    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+    padding: 5px;
 }
+
+.navbar img {
+    width: 5%;
+    min-width: 20px;
+    max-width: 40px;
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 2px;
+}
+
 
 .links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    grid-template-rows: auto auto;
-    grid-gap: 30px;
-    width: 95%;
-    box-sizing: border-box;
-    padding: 20px;
+    display: flex;
+    width: 100%;
     justify-content: center;
-    align-items: center;
+    gap: 10px;
 }
 
-.profile {
-    margin: 20px;
-    width: 20%;
-}
-
-.seperator {
+.head {
+    display: grid;
+    width: 100%;
     padding: 20px;
+    padding-bottom: 60px;
+    margin-left: 20px;
 }
 
-button {
-    color: white;
-    background-color: black;
-    border-color: white;
-    border-radius: 10px;
-    border-width: 2px;
+.head > .text {
+    width: 50%;
+}
+.head > img {
+    width: 50%;
+}
+
+
+.footer {
+    background-image: linear-gradient(to bottom, #0c0c0c00, #1A1A1A);
+    color: white; 
+    padding: 5px;
+    text-align: center;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+.link {
+  display: grid;
+  grid-template-areas:
+    "header image"
+    "content image"
+    "foot image";
+  grid-template-columns: 2fr 1fr;
+  gap: 5px;
+  justify-self: center;
+  margin-bottom: 40px;
+  align-self: center;
+  min-height: 30px;
+  width: 100%;
+  background-image: -webkit-linear-gradient(left, #161616, #ffffff);
+  border-radius: 20%;
+  padding: 5px;
+
+}
+
+.link:hover {
     border-style: solid;
-    padding: 3%;
-    width: 30%;
-    text-wrap:nowrap;
-    transition: transform 0.2s ease-in-out;
+    border-width: 1px;
+    
+}
+
+.link > div {
+  padding: 10px;
+}
+
+.link > div.header {
+  font-size: 1vw;
+  grid-area: header;
+  text-align: left;
+}
+
+.link > div.image {
+  grid-area: image;
+  justify-self: right;
+  max-width: 400px;
+}
+
+.link > div.image img {
+  width: 100%;
+  max-width: 400px;
+  min-width: 50px;
+  border-radius: 20px;
+  align-self: center;
+  justify-self: right;
+}
+
+.link > div.content {
+  scroll-behavior: smooth;
+  grid-area: content;
+  font-size: 2vw;
+  max-height: 100px;
+}
+
+.link > div.foot {
+  grid-area: foot;
+}
+
+
+.sections {
+    display: flex;
+    align-self: center;
+    gap: 20px;
+    justify-content: center; /* Align items to the start for horizontal scrolling */
+    padding-bottom: 10px;
+    padding-top: 20px;
+    max-width: 90%; /* Or any desired maximum width for the container */
+    margin: 0 auto; /* Center the container if needed */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+}
+
+.sections button {
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: #1A1A1A;
+    border-style: none;
+    width: 100px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.sections button:hover {
+    background-color: #383838;
 
 }
 
-button:hover {
-  transform: scale(1.1);
+
+
+.selected button {
+    background-color: #757AD2;
+}
+
+.selected a {
+    color: #757AD2;
 }
 
 
-.button-c:hover {
-  border-color: rgb(255, 102, 0);
-  color: rgb(255, 102, 0);
+.nothing {
+    display: flex;
+    justify-self: center;
+    padding: 200px;
 }
 
-.button-m:hover {
-  border-color: rgb(74, 141, 74);
-  color: rgb(74, 141, 74)
-}
 
-.button-i:hover {
-  border-color: rgb(206, 84, 84);
-  color: rgb(206, 84, 84)
+.top {
+    background-color: #1A1A1A;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
 }
-
-.button-d:hover {
-  border-color: rgb(84, 84, 165);
-  color: rgb(84, 84, 165)
-}
-
-.button-x:hover {
-  border-color: rgb(71, 71, 71);
-  color: rgb(71, 71, 71)
-}
-
-.button-g:hover {
-  border-color: rgb(96, 34, 153);
-  color: rgb(96, 34, 153)
-}
-
 
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
     background: #000000;
 }
 
-/*link cards*/
+::-webkit-scrollbar-thumb {
+    background: #757AD2;
+    border-radius: 30px;
+}
 
-.link1 {
-    display: grid;
-    grid-template-areas:
-      "header image"
-      "content image"
-      "footer image";
-    grid-template-columns: 2fr 1fr;
-    gap: 5px;
-    min-height: 110px;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(197, 75, 18, 0.541));
-    border-radius: 20px;
-    border-style: solid;
-    padding: 5px;
-  }
-  .link1 > div {
-    padding: 5px;
-  }
-  .link1 > div.header {
-    grid-area: header;
-    text-align: center;
-  }
-  .link1 > div.image {
-    grid-area: image;
-    align-items: right;
-  }
-  .link1 > div.image img {
-    width: 100%;
-    border-radius: 20px;
-    align-self: center;
-    height: 100%;
-  }
-  .link1 > div.content {
-    grid-area: content;
-    max-height: 100px;
-    overflow-y: hidden;
-  }
-  .link1 > div.footer {
-    grid-area: footer;
-  }
 
-  .link2 {
-    display: grid;
-    grid-template-areas:
-      "header image"
-      "content image"
-      "footer image";
-    grid-template-columns: 2fr 1fr;
-    gap: 5px;
-    min-height: 110px;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(233, 74, 74, 0.541));
-    border-radius: 20px;
-    border-style: solid;
-    padding: 5px;
-  }
-  .link2 > div {
-    padding: 5px;
-  }
-  .link2 > div.header {
-    grid-area: header;
-    text-align: center;
-  }
-  .link2 > div.image {
-    grid-area: image;
-    align-items: right;
-  }
-  .link2 > div.image img {
-    width: 100%;
-    border-radius: 20px;
-    align-self: center;
-    height: 100%;
-  }
-  .link2 > div.content {
-    grid-area: content;
-    max-height: 100px;
-    overflow-y: hidden;
-  }
-  .link2 > div.footer {
-    grid-area: footer;
-  }
 
-  .link3 {
-    display: grid;
-    grid-template-areas:
-      "header image"
-      "content image"
-      "footer image";
-    grid-template-columns: 2fr 1fr;
-    gap: 5px;
-    min-height: 110px;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(176, 18, 197, 0.24));
-    border-radius: 20px;
-    border-style: solid;
-    padding: 5px;
-  }
-  .link3 > div {
-    padding: 5px;
-  }
-  .link3 > div.header {
-    grid-area: header;
-    text-align: center;
-  }
-  .link3 > div.image {
-    grid-area: image;
-    align-items: right;
-  }
-  .link3 > div.image img {
-    width: 100%;
-    border-radius: 20px;
-    align-self: center;
-    height: 100%;
-  }
-  .link3 > div.content {
-    grid-area: content;
-    max-height: 100px;
-    overflow-y: hidden;
-  }
-  .link3 > div.footer {
-    grid-area: footer;
-  }
-
-  .link4 {
-    display: grid;
-    grid-template-areas:
-      "header image"
-      "content image"
-      "footer image";
-    grid-template-columns: 2fr 1fr;
-    gap: 5px;
-    min-height: 110px;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.397), rgba(47, 67, 160, 0.541));
-    border-radius: 20px;
-    border-style: solid;
-    padding: 5px;
-  }
-  .link4 > div {
-    padding: 5px;
-  }
-  .link4 > div.header {
-    grid-area: header;
-    text-align: center;
-  }
-  .link4 > div.image {
-    grid-area: image;
-    align-items: right;
-  }
-  .link4 > div.image img {
-    width: 100%;
-    border-radius: 20px;
-    align-self: center;
-    height: 100%;
-  }
-  .link4 > div.content {
-    grid-area: content;
-    max-height: 100px;
-    overflow-y: hidden;
-  }
-  .link4 > div.footer {
-    grid-area: footer;
-  }
-  
 
 
 
